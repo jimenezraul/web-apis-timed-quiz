@@ -1,0 +1,162 @@
+:root {
+    --light: #f8f8f8;
+    --blue: #5068a9;
+    --light-blue: #86a6df;
+    --dark-blue: #324e7b;
+    --hover: #0e153a
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    color: var(--dark-blue);
+    background-color: var(--light);
+}
+
+header {
+    color: var(--light);
+    background-color: var(--dark-blue);
+    min-height: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--light);
+}
+
+header button, .buttons button{
+    font-size: 20px;
+    color: var(--light);
+    background-color: var(--blue);
+    padding: 5px 20px;
+    border: none;
+    border-radius: 25px;
+}
+
+.buttons button{
+    font-size: 28px;
+}
+
+header button:hover, .buttons button:hover{
+    background-color: var(--hover);
+}
+
+.quiz-box, .start-quiz{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 85%;
+}
+
+/* .quiz-box{
+    display: none;
+} */
+
+.text-center{
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+.container {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+}
+
+.row-col {
+    display: flex;
+    flex-direction: column;
+    min-height: 85%;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.shadow {
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.173);
+}
+
+.card {
+    width: 50%;
+    padding: 50px;
+    border-radius: 5px;
+}
+
+.card-title{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.card-body{
+    font-size: 20px;
+    margin: 30px 0;
+}
+
+.question {
+    font-size: 28px;
+}
+
+.answers ul {
+    display: inline-block;
+}
+
+.answer {
+    font-size: 28px;
+    list-style: none;
+    color: var(--light);
+    background-color: var(--dark-blue);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.answer:hover {
+    background-color: var(--blue);
+}
+
+.result {
+    margin-top: 15px;
+    padding: 10px;
+    border-top: 2px solid var(--dark-blue);
+}
+
+.result p {
+    font-size: 28px;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+
+    .card {
+        width: 95%;
+    }
+}
