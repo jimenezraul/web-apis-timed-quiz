@@ -1,9 +1,10 @@
+/* variables */
 :root {
     --light: #f8f8f8;
     --blue: #5068a9;
     --light-blue: #86a6df;
     --dark-blue: #324e7b;
-    --hover: #0e153a
+    --hover: #5a75be;
 }
 
 * {
@@ -33,34 +34,27 @@ a {
     color: var(--light);
 }
 
-header button, .buttons button{
-    font-size: 20px;
+header button, .buttons button, .initials-box button{
+    font-size: 22px;
     color: var(--light);
     background-color: var(--blue);
-    padding: 5px 20px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
+    margin: 5px 0;
 }
 
-.buttons button{
-    font-size: 28px;
-}
-
-header button:hover, .buttons button:hover{
+header button:hover, .buttons button:hover, .initials-box button:hover{
     background-color: var(--hover);
 }
 
-.quiz-box, .start-quiz{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 85%;
+.quiz-box, .start-quiz, .result-quiz, .initials-box{
+    margin-top: 50px;
 }
 
-/* .quiz-box{
-    display: none;
-} */
+.start-quiz p{
+    font-size: 24px;
+}
 
 .text-center{
     text-align: center;
@@ -119,8 +113,8 @@ header button:hover, .buttons button:hover{
     margin: 30px 0;
 }
 
-.question {
-    font-size: 28px;
+.question h2 {
+    font-size: 34px;
 }
 
 .answers ul {
@@ -151,12 +145,46 @@ header button:hover, .buttons button:hover{
     font-size: 28px;
 }
 
-@media only screen and (max-width: 600px) {
+.initials-box input{
+    width: 50%;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid var(--light-blue);
+}
+
+.initials-box p, .initials-box label{
+    font-size: 26px;
+}
+
+.result-quiz p {
+    color: var(--light);
+    font-size: 24px;
+    padding: 5px;
+    background-color: var(--light-blue);
+}
+
+@media only screen and (max-width: 992px) {
+    header button, header h2{
+        font-size: 1.1rem;
+    }
     .container {
         width: 95%;
     }
 
     .card {
         width: 95%;
+        padding: 20px;
+    }
+
+    .buttons button{
+        font-size: 20px;
+    }
+
+    .initials-box h1{
+        font-size: 28px;
+    }
+
+    .initials-box p, .initials-box label{
+        font-size: 20px;
     }
 }
