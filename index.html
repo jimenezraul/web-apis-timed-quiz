@@ -34,7 +34,7 @@
                     <p>Keep in mind that incorrect answer will penalize your score/time by ten seconds!</p>
                 </div>
                 <div class="buttons">
-                    <button>Start Quiz</button>
+                    <button id="start">Start Quiz</button>
                 </div>
             </div>
         </div>
@@ -44,9 +44,11 @@
     <section class="quiz-box hide">
         <div class="row justify-content-center align-items-center">
             <div class="card">
+                <!-- Question -->
                 <div class="question">
                     <h2>Questions?</h2>
                 </div>
+                <!-- All answers -->
                 <div class="answers">
                     <ul>
                         <li class="answer">answer 1</li>
@@ -55,7 +57,7 @@
                         <li class="answer">answer 4</li>
                     </ul>
                 </div>
-                <div class="result">
+                <div class="result hide">
                     <p>Wrong!</p>
                 </div>
             </div>
@@ -71,7 +73,7 @@
                     <h1>All Done!</h1>
                 </div>
                 <div class="card-body">
-                    <p>Your final score is <span>22</span>.</p>
+                    <p>Your final score is <span id="final-score">22</span>.</p>
                     <label for="">Enter initials</label>
                     <input type="text">
                     <button id="submit">Submit</button>

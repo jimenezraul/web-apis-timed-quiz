@@ -49,7 +49,7 @@ header button:hover, .buttons button:hover, .initials-box button:hover{
 }
 
 .quiz-box, .start-quiz, .result-quiz, .initials-box{
-    margin-top: 50px;
+    margin: 50px 0;
 }
 
 .start-quiz p{
@@ -163,20 +163,23 @@ header button:hover, .buttons button:hover, .initials-box button:hover{
     background-color: var(--light-blue);
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1280px) {
+    .start-quiz h1{
+        font-size: 38px;
+    }
     header button, header h2{
-        font-size: 1.1rem;
+        font-size: 1.0rem;
     }
     .container {
-        width: 95%;
+        width: 90%;
     }
 
     .card {
-        width: 95%;
+        width: 60%;
         padding: 20px;
     }
 
-    .buttons button{
+    .initials-box button, .buttons button{
         font-size: 20px;
     }
 
@@ -185,6 +188,28 @@ header button:hover, .buttons button:hover, .initials-box button:hover{
     }
 
     .initials-box p, .initials-box label{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 960px){
+    .card {
+        width: 95%;
+    }
+
+    .question h2{
+        font-size: 28px;
+    }
+
+    .answer, .result{
+        font-size: 20px;
+    }
+
+    .result-quiz h1{
+        font-size: 34px;
+    }
+
+    .result-quiz p{
         font-size: 20px;
     }
 }
