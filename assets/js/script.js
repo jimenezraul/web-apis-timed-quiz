@@ -6,9 +6,10 @@ var start_btn = document.getElementById("start");
 var questionTitle = document.querySelector(".question");
 var answer = document.querySelector(".answers");
 var finalScoreEl = document.querySelector("#final-score");
-var questionCount = 0;
 var resultShow = document.querySelector(".result");
 var timerEl = document.querySelector("#timer");
+var submitBtn = document.querySelector("#submit");
+var questionCount = 0;
 var startTime = 70;
 var penalize = 0;
 var score = 0;
@@ -30,7 +31,7 @@ var timer = function () {
     if (initialsBox.classList.contains("hide")) {
       timerEl.textContent = startTime;
     } else {
-      timerEl.textContent = score
+      timerEl.textContent = score;
     }
     penalize = 0;
     if (startTime <= 0) {
@@ -98,6 +99,10 @@ var resetEl = function () {
   }
 };
 
+var initialsHandler = function () {
+  location.href = "/high-score.html"
+}
+
 // Questions array
 const questions = [
   {
@@ -106,22 +111,30 @@ const questions = [
     options: ["strings", "booleans", "alerts", "numbers"],
   },
   {
-    question: "The consition in a if / else statement is enclosed with _______.",
+    question:
+      "The consition in a if / else statement is enclosed with _______.",
     answer: "parenthesis",
     options: ["quotes", "curly brackets", "parenthesis", "square brackets"],
   },
   {
     question: "Arrays in Javascript can be used to store _______.",
     answer: "all of the above",
-    options: ["numbers and strings", "other arrays", "booleans", "all of the above"],
+    options: [
+      "numbers and strings",
+      "other arrays",
+      "booleans",
+      "all of the above",
+    ],
   },
   {
-    question: "String values must be enclosed within _______ when being assined to variables.",
+    question:
+      "String values must be enclosed within _______ when being assined to variables.",
     answer: "quotes",
     options: ["commas", "curly brackets", "quotes", "parenthesis"],
   },
   {
-    question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+    question:
+      "A very useful tool used during development and debugging for printing content to the debugger is:",
     answer: "console.log",
     options: ["Javascript", "terminal/bash", "for loops", "console.log"],
   },
@@ -129,3 +142,4 @@ const questions = [
 
 // Start button
 start_btn.addEventListener("click", start_quiz);
+submitBtn.addEventListener("click", initialsHandler);

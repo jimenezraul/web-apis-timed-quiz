@@ -38,7 +38,7 @@ a {
     color: var(--light);
 }
 
-header a, .buttons a, .buttons button, .initials-box button{
+header a, .buttons a, .buttons button, .initials-box button {
     font-size: 22px;
     color: var(--light);
     background-color: var(--blue);
@@ -48,19 +48,19 @@ header a, .buttons a, .buttons button, .initials-box button{
     margin: 5px 0;
 }
 
-header button:hover, .buttons button:hover, .initials-box button:hover{
+header button:hover, .buttons button:hover, .initials-box button:hover {
     background-color: var(--hover);
 }
 
-.quiz-box, .start-quiz, .result-quiz, .initials-box{
+.quiz-box, .start-quiz, .result-quiz, .initials-box {
     margin: 50px 0;
 }
 
-.start-quiz p{
+.start-quiz p {
     font-size: 24px;
 }
 
-.text-center{
+.text-center {
     text-align: center;
 }
 
@@ -107,12 +107,12 @@ header button:hover, .buttons button:hover, .initials-box button:hover{
     border-radius: 5px;
 }
 
-.card-title{
+.card-title {
     font-size: 30px;
     font-weight: bold;
 }
 
-.card-body{
+.card-body {
     font-size: 20px;
     margin: 30px 0;
 }
@@ -149,15 +149,30 @@ header button:hover, .buttons button:hover, .initials-box button:hover{
     font-size: 28px;
 }
 
-.initials-box input{
-    width: 50%;
+.initials-box .input {
+    margin-top: 10px;
+}
+
+.initials-box input {
+    width: 100%;
+    flex: 1;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 10px 10px;
     border: 1px solid var(--light-blue);
 }
 
-.initials-box p, .initials-box label{
+.initials-box p, .initials-box label {
     font-size: 26px;
+}
+
+.initials-box label {
+    margin-right: 4px;
+}
+
+.initials-box button {
+    margin: 0;
+    font-size: 16px;
+    margin-left: 4px;
 }
 
 .result-quiz p {
@@ -168,12 +183,14 @@ header button:hover, .buttons button:hover, .initials-box button:hover{
 }
 
 @media only screen and (max-width: 1280px) {
-    .start-quiz h1{
+    .start-quiz h1 {
         font-size: 38px;
     }
-    header button, header h2{
+
+    header button, header h2 {
         font-size: 1.0rem;
     }
+
     .container {
         width: 90%;
     }
@@ -183,37 +200,42 @@ header button:hover, .buttons button:hover, .initials-box button:hover{
         padding: 20px;
     }
 
-    .initials-box button, .buttons button{
+    .buttons button, .buttons a {
         font-size: 20px;
     }
 
-    .initials-box h1{
+    .initials-box h1 {
         font-size: 28px;
     }
 
-    .initials-box p, .initials-box label{
+    .initials-box p, .initials-box label {
         font-size: 20px;
     }
 }
 
-@media only screen and (max-width: 960px){
+@media only screen and (max-width: 960px) {
     .card {
         width: 95%;
     }
 
-    .question h2{
+    .question h2 {
         font-size: 28px;
     }
 
-    .answer, .result{
+    .answer, .result {
         font-size: 20px;
     }
 
-    .result-quiz h1{
+    .result-quiz h1 {
         font-size: 34px;
     }
 
-    .result-quiz p{
+    .result-quiz p {
         font-size: 20px;
     }
+
+    .buttons button, .buttons a {
+        font-size: 16px;
+    }
+
 }
