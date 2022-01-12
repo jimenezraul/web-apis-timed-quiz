@@ -7,22 +7,26 @@
     --hover: #5a75be;
 }
 
+/* set all elements to margin and padding to 0 and box-sizing */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/* set html and body height and width */
 html, body {
     height: 100%;
     width: 100%;
 }
 
+/* body color and background */
 body {
     color: var(--dark-blue);
     background-color: var(--light);
 }
 
+/* header color background and height */
 header {
     color: var(--light);
     background-color: var(--dark-blue);
@@ -34,7 +38,7 @@ a {
     color: var(--light);
 }
 
-header button, .buttons button, .initials-box button{
+header a, .buttons a, .buttons button, .initials-box button{
     font-size: 22px;
     color: var(--light);
     background-color: var(--blue);
