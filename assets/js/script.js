@@ -11,13 +11,14 @@ var timerEl = document.querySelector("#timer");
 var submitBtn = document.querySelector("#submit");
 var inputEl = document.querySelector("input");
 var questionCount = 0;
-var timeScore = 70;
+var timeScore = 75;
 var score = 0;
 
 // Start the quiz
 var start_quiz = function () {
   startBox.classList.add("hide");
   quizBox.classList.remove("hide");
+  timerEl.textContent = timeScore;
   timer();
   nextQuestions();
 };
@@ -25,12 +26,12 @@ var start_quiz = function () {
 // Quiz timer
 var timer = function () {
   var timerstart = setInterval(function () {
+    timeScore--;
     if (initialsBox.classList.contains("hide")) {
       timerEl.textContent = timeScore;
     } else {
       timerEl.textContent = score;
     }
-    timeScore--;
     if (timeScore <= 0) {
       clearInterval(timerstart);
       endQuiz();

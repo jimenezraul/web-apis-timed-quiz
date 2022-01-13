@@ -20,6 +20,11 @@ html, body {
     width: 100%;
 }
 
+html *
+{
+   font-family: Arial !important;
+}
+
 /* body color and background */
 body {
     color: var(--dark-blue);
@@ -47,8 +52,8 @@ header a, .buttons a, .buttons button, .initials-box button {
 }
 
 /* hover propeties for all buttons */
-header button:hover, .buttons button:hover, .initials-box button:hover {
-    background-color: var(--hover);
+header a:hover, .buttons button:hover, .initials-box button:hover, .buttons a:hover {
+    background-color: var(--dark-blue);
 }
 
 .quiz-box, .start-quiz, .result-quiz, .initials-box {
@@ -100,8 +105,12 @@ header button:hover, .buttons button:hover, .initials-box button:hover {
     box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.173);
 }
 
+.quiz-box h1 {
+    font-size: 38px;
+}
+
 .card {
-    width: 50%;
+    width: 60%;
     padding: 50px;
     border-radius: 5px;
 }
@@ -128,14 +137,14 @@ header button:hover, .buttons button:hover, .initials-box button:hover {
     font-size: 28px;
     list-style: none;
     color: var(--light);
-    background-color: var(--dark-blue);
+    background-color: var(--blue);
     padding: 5px 10px;
     border-radius: 5px;
     margin-top: 10px;
 }
 
 .answer:hover {
-    background-color: var(--blue);
+    background-color: var(--dark-blue);
 }
 
 .result {
