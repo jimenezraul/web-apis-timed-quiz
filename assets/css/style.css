@@ -46,6 +46,7 @@ header a, .buttons a, .buttons button, .initials-box button {
     margin: 5px 0;
 }
 
+/* hover propeties for all buttons */
 header button:hover, .buttons button:hover, .initials-box button:hover {
     background-color: var(--hover);
 }
@@ -154,8 +155,9 @@ header button:hover, .buttons button:hover, .initials-box button:hover {
 .initials-box input {
     width: 100%;
     flex: 1;
+    font-size: 20px;
     border-radius: 5px;
-    padding: 10px 10px;
+    padding: 5px 10px;
     border: 1px solid var(--light-blue);
 }
 
@@ -180,6 +182,11 @@ header button:hover, .buttons button:hover, .initials-box button:hover {
     background-color: var(--light-blue);
 }
 
+#score{
+    padding-left: 15px;
+}
+
+/* table screen propeties */
 @media only screen and (max-width: 1280px) {
     .start-quiz h1 {
         font-size: 38px;
@@ -199,10 +206,12 @@ header button:hover, .buttons button:hover, .initials-box button:hover {
     }
 }
 
+/* mobile screen propeties */
 @media only screen and (max-width: 960px) {
     header a, header h2 {
         font-size: 1.1rem;
     }
+
     .card {
         width: 95%;
     }
@@ -223,6 +232,10 @@ header button:hover, .buttons button:hover, .initials-box button:hover {
         font-size: 20px;
     }
 
+    .result {
+        border-top: 1px solid var(--dark-blue);
+    }
+
     .result-quiz h1 {
         font-size: 34px;
     }
@@ -233,6 +246,10 @@ header button:hover, .buttons button:hover, .initials-box button:hover {
 
     .buttons button, .buttons a {
         font-size: 16px;
+    }
+
+    .initials-box button {
+        font-size: 13px;
     }
 
 }

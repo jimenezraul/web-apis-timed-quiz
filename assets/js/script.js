@@ -11,53 +11,43 @@ var timerEl = document.querySelector("#timer");
 var submitBtn = document.querySelector("#submit");
 var inputEl = document.querySelector("input");
 var questionCount = 0;
-var startTime = 70;
-var penalize = 0;
+var timeScore = 70;
 var score = 0;
 
-//End quiz
-var endQuiz = function () {
-  quizBox.classList.add("hide");
-  initialsBox.classList.remove("hide");
-  finalScoreEl.textContent = score;
+// Start the quiz
+var start_quiz = function () {
+  startBox.classList.add("hide");
+  quizBox.classList.remove("hide");
+  timer();
+  nextQuestions();
 };
 
 // Quiz timer
 var timer = function () {
   var timerstart = setInterval(function () {
-    startTime--;
-    if (penalize > 0) {
-      startTime = startTime - penalize;
-    }
     if (initialsBox.classList.contains("hide")) {
-      timerEl.textContent = startTime;
+      timerEl.textContent = timeScore;
     } else {
       timerEl.textContent = score;
     }
-    penalize = 0;
-    if (startTime <= 0) {
+    timeScore--;
+    if (timeScore <= 0) {
       clearInterval(timerstart);
       endQuiz();
     }
   }, 1000);
 };
 
-// Selected answer
-var selectedAnswer = function (e, answer) {
-  if (e.target.getAttribute("value") === answer) {
-    for (var i = 0; i < resultShow.length; i++) {
-      resultShow[i].classList.remove("hide");
-      resultShow[i].innerHTML = "<p>Correct!</p>";
-    }
-    nextQuestions();
+// Reset question card and set the next question
+var nextQuestions = function () {
+  resetEl();
+  if (questions[questionCount] === undefined) {
+    score = timeScore;
+    endQuiz();
   } else {
-    for (var i = 0; i < resultShow.length; i++) {
-      resultShow[i].classList.remove("hide");
-      resultShow[i].innerHTML = "<p>Wrong!</p>";
-    }
-    penalize = 10;
-    nextQuestions();
+    showQuestion(questions[questionCount]);
   }
+  questionCount++;
 };
 
 // Show question to the page
@@ -77,24 +67,29 @@ var showQuestion = function (question) {
   }
 };
 
-// Reset question card and set the next question
-var nextQuestions = function () {
-  resetEl();
-  if (questions[questionCount] === undefined) {
-    score = startTime;
-    endQuiz();
+// Check if selected answer is correct or wrong
+var selectedAnswer = function (e, answer) {
+  if (e.target.getAttribute("value") === answer) {
+    for (var i = 0; i < resultShow.length; i++) {
+      resultShow[i].classList.remove("hide");
+      resultShow[i].innerHTML = "<p>Correct!</p>";
+    }
+    nextQuestions();
   } else {
-    showQuestion(questions[questionCount]);
+    for (var i = 0; i < resultShow.length; i++) {
+      resultShow[i].classList.remove("hide");
+      resultShow[i].innerHTML = "<p>Wrong!</p>";
+    }
+    timeScore = timeScore - 10;
+    nextQuestions();
   }
-  questionCount++;
 };
 
-// Start the quiz
-var start_quiz = function () {
-  startBox.classList.add("hide");
-  quizBox.classList.remove("hide");
-  timer(startTime);
-  nextQuestions();
+//End quiz
+var endQuiz = function () {
+  quizBox.classList.add("hide");
+  initialsBox.classList.remove("hide");
+  finalScoreEl.textContent = score;
 };
 
 // Reset all the elements inside the question card
@@ -104,19 +99,29 @@ var resetEl = function () {
   }
 };
 
+// Check if there's a user in localstorage and compare if that user score < than the current user score
 var initialsHandler = function () {
-  var input = inputEl.value
-  var user = JSON.stringify({user: input,
-    score: score
-  })
-  highScoreHandler(user)
+  var input = inputEl.value;
+  var user;
+  var highScoreUser = JSON.parse(localStorage.getItem("user"));
+  if (highScoreUser.length) {
+    if (highScoreUser[0].score < score) {
+      user = { user: input, score: score };
+      highScoreHandler(user);
+    }
+  } else {
+    user = { user: input, score: score };
+    highScoreHandler(user);
+  }
+
   location.href = "/high-score.html";
 };
 
+// Save user to the localstorage
 var highScoreHandler = function (user) {
-  
-  localStorage.setItem("user", user)
-}
+  user = JSON.stringify([{ user: user.user, score: user.score }]);
+  localStorage.setItem("user", user);
+};
 
 // Questions array
 const questions = [
@@ -157,4 +162,6 @@ const questions = [
 
 // Start button
 start_btn.addEventListener("click", start_quiz);
+
+// Submit button
 submitBtn.addEventListener("click", initialsHandler);
