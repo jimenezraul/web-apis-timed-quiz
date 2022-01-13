@@ -6,9 +6,10 @@ var start_btn = document.getElementById("start");
 var questionTitle = document.querySelector(".question");
 var answer = document.querySelector(".answers");
 var finalScoreEl = document.querySelector("#final-score");
-var resultShow = document.querySelector(".result");
+var resultShow = document.querySelectorAll(".result");
 var timerEl = document.querySelector("#timer");
 var submitBtn = document.querySelector("#submit");
+var inputEl = document.querySelector("input");
 var questionCount = 0;
 var startTime = 70;
 var penalize = 0;
@@ -44,12 +45,16 @@ var timer = function () {
 // Selected answer
 var selectedAnswer = function (e, answer) {
   if (e.target.getAttribute("value") === answer) {
-    resultShow.classList.remove("hide");
-    resultShow.innerHTML = "<p>Correct!</p>";
+    for (var i = 0; i < resultShow.length; i++) {
+      resultShow[i].classList.remove("hide");
+      resultShow[i].innerHTML = "<p>Correct!</p>";
+    }
     nextQuestions();
   } else {
-    resultShow.classList.remove("hide");
-    resultShow.innerHTML = "<p>Wrong!</p>";
+    for (var i = 0; i < resultShow.length; i++) {
+      resultShow[i].classList.remove("hide");
+      resultShow[i].innerHTML = "<p>Wrong!</p>";
+    }
     penalize = 10;
     nextQuestions();
   }
@@ -100,7 +105,17 @@ var resetEl = function () {
 };
 
 var initialsHandler = function () {
-  location.href = "/high-score.html"
+  var input = inputEl.value
+  var user = JSON.stringify({user: input,
+    score: score
+  })
+  highScoreHandler(user)
+  location.href = "/high-score.html";
+};
+
+var highScoreHandler = function (user) {
+  
+  localStorage.setItem("user", user)
 }
 
 // Questions array
