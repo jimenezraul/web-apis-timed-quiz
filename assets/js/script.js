@@ -114,7 +114,7 @@ var initialsHandler = function () {
     highScoreHandler(user);
   }
 
-  location.href = "/high-score.html";
+  location.href = "./high-score.html";
 };
 
 // Save user to the localstorage
