@@ -104,7 +104,7 @@ var initialsHandler = function () {
   var input = inputEl.value;
   var user;
   var highScoreUser = JSON.parse(localStorage.getItem("user"));
-  if (highScoreUser.length) {
+  if (highScoreUser !== null && highScoreUser.length > 0) {
     if (highScoreUser[0].score < score) {
       user = { user: input, score: score };
       highScoreHandler(user);
@@ -114,7 +114,7 @@ var initialsHandler = function () {
     highScoreHandler(user);
   }
 
-  location.href = "/web-apis-timer-quiz/high-score.html";
+  location.href = "/high-score.html";
 };
 
 // Save user to the localstorage
