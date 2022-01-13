@@ -224,6 +224,10 @@ header a:hover, .buttons button:hover, .initials-box button:hover, .buttons a:ho
         width: 95%;
     }
 
+    .quiz-box h1 {
+        font-size: 30px;
+    }
+
     .question h2 {
         font-size: 28px;
     }
