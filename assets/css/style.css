@@ -20,9 +20,8 @@ html, body {
     width: 100%;
 }
 
-html *
-{
-   font-family: Arial !important;
+html * {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* body color and background */
@@ -191,7 +190,7 @@ header a:hover, .buttons button:hover, .initials-box button:hover, .buttons a:ho
     background-color: var(--light-blue);
 }
 
-#score{
+#score {
     padding-left: 15px;
 }
 
