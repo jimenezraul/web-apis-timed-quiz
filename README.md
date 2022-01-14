@@ -19,4 +19,4 @@ Once you input your initials, your score will be saved to a local storage as a h
 ![screenshot](./assets/img/screenshot7.png)
 
 ## Development
-Deployed application: [Live URL](https://jimenezraul.github.io/web-apis-timer-quiz/)
+Deployed application: [Live URL](https://jimenezraul.github.io/web-apis-timed-quiz/)
