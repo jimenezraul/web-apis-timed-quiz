@@ -160,6 +160,10 @@ header a:hover, .buttons button:hover, .initials-box button:hover, .buttons a:ho
     margin-top: 10px;
 }
 
+.initials-box input{
+    color: var(--dark-blue);
+}
+
 .initials-box input {
     width: 100%;
     flex: 1;
