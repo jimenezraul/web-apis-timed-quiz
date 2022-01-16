@@ -13,6 +13,7 @@ var inputEl = document.querySelector("input");
 var questionCount = 0;
 var timeScore = 75;
 var score = 0;
+var timeOutFunc;
 
 // Start the quiz
 var start_quiz = function () {
@@ -37,6 +38,16 @@ var timer = function () {
       endQuiz();
     }
   }, 1000);
+};
+
+var timeOut = function () {
+  timeOutFunc = setTimeout(function () {
+      for (var i = 0; i < resultShow.length; i++) {
+        if (!resultShow[i].classList.contains("hide")) {
+          resultShow[i].classList.add("hide");
+        }
+      }
+  }, 2000);
 };
 
 // Reset question card and set the next question
@@ -69,21 +80,22 @@ var showQuestion = function (question) {
 };
 
 // Check if selected answer is correct or wrong
-var selectedAnswer = function (e, answer) {
-  if (e.target.getAttribute("value") === answer) {
+var selectedAnswer = function (e, correctAnswer) {
+  clearTimeout(timeOutFunc);
+  if (e.target.getAttribute("value") === correctAnswer) {
     for (var i = 0; i < resultShow.length; i++) {
       resultShow[i].classList.remove("hide");
       resultShow[i].innerHTML = "<p>Correct!</p>";
     }
-    nextQuestions();
   } else {
     for (var i = 0; i < resultShow.length; i++) {
       resultShow[i].classList.remove("hide");
       resultShow[i].innerHTML = "<p>Wrong!</p>";
     }
     timeScore = timeScore - 10;
-    nextQuestions();
   }
+  nextQuestions();
+  timeOut();
 };
 
 //End quiz
