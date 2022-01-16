@@ -53,6 +53,8 @@ header a, .buttons a, .buttons button, .initials-box button {
 /* hover propeties for all buttons */
 header a:hover, .buttons button:hover, .initials-box button:hover, .buttons a:hover {
     background-color: var(--dark-blue);
+    cursor: pointer;
+
 }
 
 .quiz-box, .start-quiz, .result-quiz, .initials-box {
